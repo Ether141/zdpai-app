@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RestApp.Models;
 using RestApp.Services;
 
 namespace RestApp.Controllers;
@@ -21,7 +20,7 @@ public class TicketsController : Controller
     [HttpGet("{id}")]
     public IActionResult GetTicket(int id)
     {
-        Ticket? ticket = _ticketsProvider.GetTicket(id);
+        var ticket = _ticketsProvider.GetTicket(id);
 
         if (ticket == null)
         {
