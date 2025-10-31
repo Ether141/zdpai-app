@@ -1,3 +1,5 @@
+using RestApp.Services;
+
 namespace RestApp;
 
 public class Program
@@ -6,6 +8,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddScoped<ITicketsProvider, TicketsProvider>();
         builder.Services.AddControllers();
 
         var app = builder.Build();
